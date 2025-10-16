@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macarrão Colorido - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../categorias/almoco.html'">
+        <i class="fas fa-arrow-left"></i> Voltar ao Almoço
+      </button>
+      
+      <div class="cabecalho-receita">
+        <h1>Macarrão Colorido</h1>
+        <img src="../imagem/massa.jpeg" alt="Macarrão Colorido" class="imagem-principal" />
+        <p class="descricao-receita">Macarrão divertido com legumes coloridos, perfeito para as crianças!</p>
+      </div>
+
+      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+      <li>200g de macarrão parafuso</li>
+      <li>1/2 xícara de cenoura picadinha</li>
+      <li>1/2 xícara de brócolis picado</li>
+      <li>1/2 xícara de pimentão vermelho picado</li>
+      <li>2 colheres de sopa de azeite de oliva</li>
+      <li>Sal a gosto</li>
+      <li>Queijo ralado (opcional)</li>
+    </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+      <li>Cozinhe o macarrão conforme as instruções da embalagem.</li>
+      <li>Enquanto o macarrão cozinha, refogue os legumes no azeite até ficarem macios.</li>
+      <li>Escorra o macarrão e misture com os legumes refogados.</li>
+      <li>Tempere com sal a gosto e misture bem.</li>
+      <li>Sirva com queijo ralado por cima, se desejar.</li>
+    </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>Esta receita é rica em nutrientes essenciais para o crescimento saudável das crianças!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>

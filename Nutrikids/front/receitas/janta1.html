@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janta Especial 1 - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../categorias/janta.html'">
+        <i class="fas fa-arrow-left"></i> Voltar à Janta
+      </button>
+      
+      <div class="cabecalho-receita">
+        <h1>Janta Especial 1</h1>
+        <img src="../imagem/janta1.jpg" alt="Janta Especial 1" class="imagem-principal" />
+        <p class="descricao-receita">Jantar nutritivo e colorido para as crianças!</p>
+      </div>
+
+      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+      <li>200 g de carne em cubinhos ou moída</li>
+      <li>1 xícara de brócolis cozido no vapor</li>
+      <li>6 gomos de tangerina (ou laranja em calda leve)</li>
+      <li>1 colher (sopa) de azeite</li>
+      <li>Sal e pimenta a gosto</li>
+    </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+      <li>Tempere a carne com sal e pimenta.</li>
+      <li>Aqueça o azeite em uma frigideira.</li>
+      <li>Doure bem a carne até ficar cozida e suculenta.</li>
+      <li>Cozinhe o brócolis no vapor por 4 a 5 minutos, até ficar macio.</li>
+      <li>Monte o prato com carne, brócolis e tangerina ao lado.</li>
+    </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>Esse prato combina proteína, fibras e vitamina C, ajudando na energia e na imunidade das crianças.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>

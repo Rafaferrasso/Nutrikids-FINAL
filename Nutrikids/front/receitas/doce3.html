@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docinho Especial 3 - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../home/feed.html'">
+        <i class="fas fa-arrow-left"></i> Voltar ao Feed
+      </button>
+      
+      <div class="cabecalho-receita">
+        <h1>Bolo de Cenoura Fit</h1>
+        <img src="../imagem/doce3.jpeg" alt="Bolo de Cenoura Fit" class="imagem-principal" />
+        <p class="descricao-receita">Um bolo fofinho, saudável e cheio de sabor, feito com cenoura e cobertura de chocolate fit!</p>
+      </div>
+
+      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+            <li>2 cenouras médias raladas</li>
+      <li>3 ovos</li>
+      <li>1/2 xícara de óleo de coco ou azeite</li>
+      <li>1 xícara de farinha de aveia</li>
+      <li>1/2 xícara de açúcar mascavo ou adoçante culinário</li>
+      <li>1 colher de sopa de fermento em pó</li>
+      <li>1/2 xícara de chocolate 70% derretido (para a cobertura)</li>
+          </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+            <li>Bata no liquidificador os ovos, o óleo e as cenouras até formar um creme.</li>
+            <li>Em uma tigela, misture o creme com a farinha de aveia e o açúcar mascavo.</li>
+            <li>Adicione o fermento delicadamente.</li>
+            <li>Despeje a massa em uma forma untada e leve ao forno preaquecido a 180°C por cerca de 30 minutos.</li>
+            <li>Finalize com a cobertura de chocolate fit por cima do bolo assado.</li>
+          </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>A cenoura é rica em vitamina A, que faz bem para a visão e a pele. A farinha de aveia adiciona fibras, e a versão fit com chocolate 70% garante energia sem exagerar no açúcar!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>

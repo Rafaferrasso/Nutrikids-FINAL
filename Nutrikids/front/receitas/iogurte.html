@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iogurte com Granola - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../categorias/cafe.html'">
+        <i class="fas fa-arrow-left"></i> Voltar ao Café da Manhã
+      </button>
+      
+    <div class="cabecalho-receita">
+      <h1>Iogurte com Granola</h1>
+      <img src="../imagem/iogurte.webp" alt="Iogurte com Granola" class="imagem-principal" />
+      <p class="descricao-receita">Lanche saudável e delicioso com iogurte natural, frutas e granola crocante!</p>
+    </div>      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+            <li>1 pote de iogurte natural sem açúcar</li>
+            <li>2 colheres de sopa de granola sem açúcar</li>
+            <li>1 banana em rodelas</li>
+            <li>4 morangos picados</li>
+            <li>1 colher de chá de mel (opcional)</li>
+          </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+            <li>Coloque o iogurte em uma tigela.</li>
+            <li>Pique as frutas em pedaços pequenos.</li>
+            <li>Misture o iogurte com as frutas.</li>
+            <li>Adicione a granola por cima.</li>
+            <li>Finalize com um fio de mel, se quiser adoçar.</li>
+          </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>Essa combinação traz probióticos do iogurte, fibras da granola e vitaminas das frutas. Uma refeição leve, nutritiva e perfeita para o lanche das crianças!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>

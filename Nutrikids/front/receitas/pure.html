@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purê Colorido - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../categorias/almoco.html'">
+        <i class="fas fa-arrow-left"></i> Voltar ao Almoço
+      </button>
+      
+      <div class="cabecalho-receita">
+        <h1>Purê Colorido</h1>
+        <img src="../imagem/purecarn.webp" alt="Purê Colorido" class="imagem-principal" />
+        <p class="descricao-receita">Purê divertido e nutritivo feito com legumes coloridos!</p>
+      </div>
+
+      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+      <li>2 batatas-doce médias cozidas</li>
+      <li>1 cenoura média cozida</li>
+      <li>1 pedaço pequeno de beterraba cozida</li>
+      <li>1/2 xícara de leite ou bebida vegetal</li>
+      <li>1 colher de sopa de azeite de oliva</li>
+      <li>Sal a gosto</li>
+    </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+      <li>Cozinhe a batata-doce, a cenoura e a beterraba até ficarem bem macias.</li>
+      <li>Separe cada legume em recipientes diferentes para preparar purês coloridos.</li>
+      <li>Amasse cada legume e adicione um pouco de leite e azeite até formar um creme liso.</li>
+      <li>Acerte o sal e misture bem.</li>
+      <li>Monte no prato fazendo camadas coloridas ou use formas divertidas para servir.</li>
+    </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>Esse purê é uma forma criativa de oferecer legumes variados, cada cor traz diferentes vitaminas e minerais importantes para o crescimento das crianças.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>

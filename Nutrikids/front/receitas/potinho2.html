@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potinho Surpresa 2 - Nutri Kids</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/receitas.css" />
+  <link rel="icon" href="../imagem/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <button id="btn-menu">☰</button>
+    <h1 class="titulo">Nutri Kids</h1>
+    <nav id="menu" class="menu-oculto">
+      <ul>
+        <li><a href="../home/feed.html">🏠 Feed Principal</a></li>
+        <li><a href="../categorias/cafe.html">☀️ Café da Manhã</a></li>
+        <li><a href="../categorias/lanche1.html">🍎 Lanche da Manhã</a></li>
+        <li><a href="../categorias/almoco.html">🍽️ Almoço Nutritivo</a></li>
+        <li><a href="../categorias/lanche2.html">🥪 Lanche da Tarde</a></li>
+        <li><a href="../categorias/janta.html">🌙 Janta Alegria</a></li>
+        <li><a href="../categorias/doce.html">🍰 Docinho Nutri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="receita-completa">
+      <button class="btn-voltar-receita" onclick="window.location.href='../categorias/lanche1.html'">
+        <i class="fas fa-arrow-left"></i> Voltar ao Lanche da Manhã
+      </button>
+      
+      <div class="cabecalho-receita">
+        <h1>Potinho Surpresa 2</h1>
+        <img src="../imagem/pote2.jpg" alt="Potinho Surpresa 2" class="imagem-principal" />
+        <p class="descricao-receita">Potinho equilibrado com biscoitinhos, fruta, sanduíche e até um docinho!</p>
+      </div>
+
+      <div class="conteudo-receita">
+        <div class="secao-ingredientes">
+          <h2><i class="fas fa-list"></i> Ingredientes</h2>
+          <ul class="lista-ingredientes">
+      <li>1 sanduíche pequeno (pão integral com queijo ou pasta leve)</li>
+      <li>1/2 xícara de morangos fatiados</li>
+      <li>1 porção de biscoitinhos de polvilho ou biscoitinhos fitness</li>
+      <li>1 docinho pequeno (brigadeiro ou outro de preferência)</li>
+      <li>1 potinho ou marmita pequena</li>
+    </ul>
+        </div>
+
+        <div class="secao-preparo">
+          <h2><i class="fas fa-utensils"></i> Modo de Preparo</h2>
+          <ol class="lista-preparo">
+      <li>Monte o sanduíche em tamanho pequeno e corte ao meio.</li>
+      <li>Lave e fatie os morangos.</li>
+      <li>No potinho, coloque o sanduíche de um lado.</li>
+      <li>Adicione os biscoitinhos e os morangos em espaços separados.</li>
+      <li>Finalize com um docinho, que torna a refeição ainda mais equilibrada e prazerosa.</li>
+    </ol>
+        </div>
+
+        <div class="dicas-nutricionais">
+          <h3><i class="fas fa-heart"></i> Dica Nutricional</h3>
+          <p>Esse potinho mostra que o equilíbrio é essencial: frutas e pão integral garantem fibras e energia, enquanto o docinho pode sim fazer parte de uma refeição saudável e balanceada para as crianças.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    document.getElementById('btn-menu').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-oculto');
+    });
+  </script>
+</body>
+</html>
