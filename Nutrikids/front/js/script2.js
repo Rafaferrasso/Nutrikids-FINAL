@@ -15,7 +15,7 @@ function limparTodosComentariosLocalStorage() {
     }
   });
   
-  console.log(`✅ ${comentariosRemovidos} armazenamentos de comentários foram limpos do localStorage`);
+  console.log(` ${comentariosRemovidos} armazenamentos de comentários foram limpos do localStorage`);
 }
 
 // Executar limpeza de comentários quando a página carregar
@@ -104,26 +104,26 @@ class GerenciadorReceita {
     const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado') || '{}');
     
     if (!usuarioLogado.id) {
-      alert('❌ Você precisa estar logado para deletar comentários.');
+      alert(' Você precisa estar logado para deletar comentários.');
       return;
     }
 
     // Encontrar o comentário no DOM
     const comentarioElement = this.areaComentarios.querySelector(`[data-comentario-id="${comentarioId}"]`);
     if (!comentarioElement) {
-      alert('❌ Comentário não encontrado.');
+      alert(' Comentário não encontrado.');
       return;
     }
 
     // Verificar se o usuário é o autor do comentário
     const autorId = comentarioElement.dataset.autorId;
     if (autorId && parseInt(autorId) !== parseInt(usuarioLogado.id)) {
-      alert('❌ Você só pode deletar seus próprios comentários.');
+      alert(' Você só pode deletar seus próprios comentários.');
       return;
     }
 
     // Confirmar exclusão
-    const confirmar = confirm('🗑️ Tem certeza que deseja deletar este comentário?\n\nEsta ação não pode ser desfeita.');
+    const confirmar = confirm(' Tem certeza que deseja deletar este comentário?\n\nEsta ação não pode ser desfeita.');
     if (!confirmar) {
       return;
     }
@@ -148,7 +148,7 @@ class GerenciadorReceita {
     // Enviar para o backend (se implementado)
     this.deletarComentarioBackend(comentarioId);
 
-    console.log('🗑️ Comentário deletado:', comentarioId);
+    console.log(' Comentário deletado:', comentarioId);
   }
 
   async deletarComentarioBackend(comentarioId) {
@@ -171,10 +171,10 @@ class GerenciadorReceita {
 
         if (response.ok) {
           const result = await response.json();
-          console.log('✅ Comentário deletado no servidor!', result);
+          console.log(' Comentário deletado no servidor!', result);
         }
       } catch (error) {
-        console.warn('⚠️ Erro ao deletar comentário no servidor:', error);
+        console.warn(' Erro ao deletar comentário no servidor:', error);
       }
     }
   }
@@ -193,7 +193,7 @@ class GerenciadorReceita {
         this.btnCurtir.style.transform = 'scale(1)';
       }, 200);
 
-      console.log('❤️ Receita curtida!');
+      console.log(' Receita curtida!');
     } else {
       // DESCURTIR
       this.curtidas = Math.max(0, this.curtidas - 1);
@@ -207,7 +207,7 @@ class GerenciadorReceita {
         this.btnCurtir.style.transform = 'scale(1)';
       }, 200);
 
-      console.log('💔 Receita descurtida!');
+      console.log(' Receita descurtida!');
     }
 
     // Salvar no localStorage e backend
@@ -215,7 +215,7 @@ class GerenciadorReceita {
   }
 
   adicionarComentario() {
-    const comentario = prompt('💬 Digite seu comentário:');
+    const comentario = prompt(' Digite seu comentário:');
     if (comentario && comentario.trim()) {
       this.criarComentario(comentario.trim());
     }
@@ -226,7 +226,7 @@ class GerenciadorReceita {
     const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado') || '{}');
     const nomeUsuario = usuarioLogado.name || 'Usuário';
     
-    console.log(`💬 Novo comentário de ${nomeUsuario}: "${texto}"`);
+    console.log(` Novo comentário de ${nomeUsuario}: "${texto}"`);
     
     const comentario = document.createElement('div');
     comentario.className = 'comentario-item';
@@ -332,7 +332,7 @@ class GerenciadorReceita {
 
         if (response.ok) {
           const result = await response.json();
-          console.log('💬 Comentário salvo no servidor!', result);
+          console.log(' Comentário salvo no servidor!', result);
         }
       } catch (error) {
         console.warn('Erro ao salvar comentário no servidor:', error);
@@ -365,7 +365,7 @@ class GerenciadorReceita {
 
         if (response.ok) {
           const result = await response.json();
-          console.log(`${this.jaCurtiu ? '❤️ Curtida' : '💔 Descurtida'} salva no servidor!`);
+          console.log(`${this.jaCurtiu ? ' Curtida' : ' Descurtida'} salva no servidor!`);
         }
       } catch (error) {
         console.warn('Erro ao salvar curtida no servidor:', error);

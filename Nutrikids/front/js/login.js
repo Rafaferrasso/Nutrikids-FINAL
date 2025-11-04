@@ -40,13 +40,13 @@ function setupLogin(form) {
 
         // Validação de campos
         if (!email || !senha) {
-            alert("❌ Por favor, preencha o e-mail e a senha.");
+            alert(" Por favor, preencha o e-mail e a senha.");
             return;
         }
 
         // Validação de email
         if (!email.includes('@')) {
-            alert("❌ Por favor, insira um email válido!");
+            alert(" Por favor, insira um email válido!");
             return;
         }
 
@@ -60,21 +60,21 @@ function setupLogin(form) {
             });
 
             const data = await response.json();
-            console.log("📥 Resposta do servidor:", data);
+            console.log(" Resposta do servidor:", data);
 
             if (!data.success) {
-                alert("❌ " + (data.message || "Email ou senha incorretos."));
+                alert(" " + (data.message || "Email ou senha incorretos."));
                 return;
             }
 
             // Sucesso: salvar dados do usuário e redirecionar
             localStorage.setItem("usuarioLogado", JSON.stringify(data.user));
-            alert("✅ Login realizado com sucesso!");
+            alert(" Login realizado com sucesso!");
             window.location.href = "feed.html";
 
         } catch (error) {
             console.error("Erro ao conectar com o servidor:", error);
-            alert("❌ Erro ao conectar com o servidor. Verifique se o servidor está rodando na porta 3000.");
+            alert(" Erro ao conectar com o servidor. Verifique se o servidor está rodando na porta 3000.");
         }
     });
 }
@@ -94,19 +94,19 @@ function setupCadastro(form) {
         const senha = document.getElementById("senha")?.value?.trim();
 
         if (!nome || !email || !senha) {
-            alert("❌ Por favor, preencha todos os campos!");
+            alert(" Por favor, preencha todos os campos!");
             return;
         }
 
         // Validação básica de email
         if (!email.includes('@')) {
-            alert("❌ Por favor, insira um email válido!");
+            alert(" Por favor, insira um email válido!");
             return;
         }
 
         // Validação de senha (mínimo 6 caracteres)
         if (senha.length < 6) {
-            alert("❌ A senha deve ter pelo menos 6 caracteres!");
+            alert(" A senha deve ter pelo menos 6 caracteres!");
             return;
         }
 
@@ -122,14 +122,14 @@ function setupCadastro(form) {
             const data = await response.json();
 
             if (data.success) {
-                alert("✅ Cadastro realizado com sucesso! Redirecionando para o login...");
+                alert(" Cadastro realizado com sucesso! Redirecionando para o login...");
                 window.location.href = "login.html";
             } else {
-                alert("❌ Erro no cadastro: " + (data.message || "Tente novamente"));
+                alert(" Erro no cadastro: " + (data.message || "Tente novamente"));
             }
         } catch (error) {
             console.error("Erro ao conectar com o servidor:", error);
-            alert("❌ Erro ao conectar com o servidor. Verifique se o servidor está rodando na porta 3000.");
+            alert(" Erro ao conectar com o servidor. Verifique se o servidor está rodando na porta 3000.");
         }
     });
 }

@@ -59,11 +59,11 @@ app.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
     
     console.log('\n👤 NOVA TENTATIVA DE CADASTRO:');
-    console.log('📧 Email:', email);
-    console.log('👤 Nome:', name);
+    console.log(' Email:', email);
+    console.log(' Nome:', name);
 
     if (!name || !email || !password) {
-      console.log('❌ Cadastro rejeitado: campos obrigatórios faltando');
+      console.log(' Cadastro rejeitado: campos obrigatórios faltando');
       return res.status(400).json({ 
         success: false, 
         message: 'Nome, email e senha são obrigatórios' 
@@ -77,7 +77,7 @@ app.post('/register', async (req, res) => {
     );
 
     if (existingUser.length > 0) {
-      console.log('❌ Cadastro rejeitado: email já existe -', email);
+      console.log(' Cadastro rejeitado: email já existe -', email);
       return res.status(400).json({ 
         success: false, 
         message: 'Email já cadastrado' 
@@ -90,10 +90,10 @@ app.post('/register', async (req, res) => {
       [name, email, password]
     );
 
-    console.log('✅ CADASTRO REALIZADO COM SUCESSO!');
-    console.log('🆔 ID do usuário:', result.insertId);
-    console.log('👤 Nome:', name);
-    console.log('📧 Email:', email);
+    console.log(' CADASTRO REALIZADO COM SUCESSO!');
+    console.log(' ID do usuário:', result.insertId);
+    console.log(' Nome:', name);
+    console.log(' Email:', email);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
     res.json({ 
@@ -116,11 +116,11 @@ app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    console.log('\n🔑 NOVA TENTATIVA DE LOGIN:');
-    console.log('📧 Email:', email);
+    console.log('\n NOVA TENTATIVA DE LOGIN:');
+    console.log(' Email:', email);
 
     if (!email || !password) {
-      console.log('❌ Login rejeitado: email ou senha faltando');
+      console.log(' Login rejeitado: email ou senha faltando');
       return res.status(400).json({ 
         success: false, 
         message: 'Email e senha são obrigatórios' 
@@ -133,10 +133,10 @@ app.post('/login', async (req, res) => {
       [email]
     );
 
-    console.log('📊 Resultado da busca de usuário:', JSON.stringify(emailCheck));
+    console.log(' Resultado da busca de usuário:', JSON.stringify(emailCheck));
     
     if (emailCheck.length === 0) {
-      console.log('❌ Login rejeitado: email não encontrado -', email);
+      console.log(' Login rejeitado: email não encontrado -', email);
       return res.status(401).json({ 
         success: false, 
         message: 'Email ou senha incorretos' 
@@ -144,22 +144,22 @@ app.post('/login', async (req, res) => {
     }
 
     const user = emailCheck[0];
-    console.log('🔍 Senha informada:', password);
-    console.log('🔍 Senha armazenada:', user.password);
+    console.log(' Senha informada:', password);
+    console.log(' Senha armazenada:', user.password);
 
     // Verificar senha
     if (user.password !== password) {
-      console.log('❌ Login rejeitado: senha incorreta para -', email);
+      console.log(' Login rejeitado: senha incorreta para -', email);
       return res.status(401).json({ 
         success: false, 
         message: 'Email ou senha incorretos' 
       });
     }
 
-    console.log('✅ LOGIN REALIZADO COM SUCESSO!');
-    console.log('🆔 ID do usuário:', user.id);
-    console.log('👤 Nome:', user.name);
-    console.log('📧 Email:', user.email);
+    console.log(' LOGIN REALIZADO COM SUCESSO!');
+    console.log(' ID do usuário:', user.id);
+    console.log(' Nome:', user.name);
+    console.log(' Email:', user.email);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
     res.json({ 
@@ -174,7 +174,7 @@ app.post('/login', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('💥 Erro no login:', error);
+    console.error(' Erro no login:', error);
     res.status(500).json({ 
       success: false, 
       message: 'Erro interno do servidor' 
@@ -239,14 +239,14 @@ app.get('/recipes', async (req, res) => {
 // Rota para criar receita de usuário com upload de imagem
 app.post('/user-recipes', upload.single('imagemReceita'), async (req, res) => {
   try {
-    console.log('\n🍳 NOVA RECEITA RECEBIDA:');
-    console.log('📝 Body:', req.body);
-    console.log('📸 Arquivo:', req.file);
+    console.log('\n NOVA RECEITA RECEBIDA:');
+    console.log(' Body:', req.body);
+    console.log(' Arquivo:', req.file);
     
     const { nome, categoria, ingredientes, descricao, inspiracao, userId = 1 } = req.body;
 
     if (!nome || !categoria || !ingredientes || !descricao) {
-      console.log('❌ Campos obrigatórios faltando');
+      console.log(' Campos obrigatórios faltando');
       return res.status(400).json({ 
         success: false, 
         message: 'Todos os campos obrigatórios devem ser preenchidos' 
@@ -257,11 +257,11 @@ app.post('/user-recipes', upload.single('imagemReceita'), async (req, res) => {
     let imagemPath = null;
     if (req.file) {
       imagemPath = `/front/imagem/uploads/${req.file.filename}`;
-      console.log('✅ Imagem salva com sucesso!');
-      console.log('📁 Caminho completo:', req.file.path);
-      console.log('🔗 Caminho relativo para DB:', imagemPath);
+      console.log(' Imagem salva com sucesso!');
+      console.log(' Caminho completo:', req.file.path);
+      console.log(' Caminho relativo para DB:', imagemPath);
     } else {
-      console.log('⚠️ Nenhuma imagem foi enviada');
+      console.log(' Nenhuma imagem foi enviada');
     }
 
     // Inserir receita na base de dados
@@ -270,7 +270,7 @@ app.post('/user-recipes', upload.single('imagemReceita'), async (req, res) => {
       [userId, nome, categoria, ingredientes, descricao, inspiracao, imagemPath]
     );
 
-    console.log('💾 Receita salva no banco com ID:', result.insertId);
+    console.log(' Receita salva no banco com ID:', result.insertId);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
     res.json({ 
@@ -281,7 +281,7 @@ app.post('/user-recipes', upload.single('imagemReceita'), async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ ERRO ao criar receita:', error);
+    console.error(' ERRO ao criar receita:', error);
     
     // Se o erro for de upload, dar mais detalhes
     if (error.code === 'LIMIT_FILE_SIZE') {
@@ -393,7 +393,7 @@ app.post('/like', async (req, res) => {
         [userId, recipeId]
       );
 
-      console.log(`💔 ${userName} descurtiu a receita ${recipeId}`);
+      console.log(` ${userName} descurtiu a receita ${recipeId}`);
 
       res.json({ 
         success: true, 
@@ -407,7 +407,7 @@ app.post('/like', async (req, res) => {
         [userId, recipeId]
       );
 
-      console.log(`❤️ ${userName} curtiu a receita ${recipeId}`);
+      console.log(` ${userName} curtiu a receita ${recipeId}`);
 
       res.json({ 
         success: true, 
@@ -432,12 +432,12 @@ app.delete('/recipe/:recipeId', async (req, res) => {
     const { recipeId } = req.params;
     const { userId } = req.body;
 
-    console.log(`\n🗑️ TENTATIVA DE DELETAR RECEITA:`);
-    console.log(`📝 Receita ID: ${recipeId}`);
-    console.log(`👤 Usuário ID: ${userId}`);
+    console.log(`\n TENTATIVA DE DELETAR RECEITA:`);
+    console.log(` Receita ID: ${recipeId}`);
+    console.log(` Usuário ID: ${userId}`);
 
     if (!userId || !recipeId) {
-      console.log('❌ Dados insuficientes para deletar receita');
+      console.log(' Dados insuficientes para deletar receita');
       return res.status(400).json({ 
         success: false, 
         message: 'User ID e Recipe ID são obrigatórios' 
@@ -451,7 +451,7 @@ app.delete('/recipe/:recipeId', async (req, res) => {
     );
 
     if (recipeInfo.length === 0) {
-      console.log('❌ Receita não encontrada');
+      console.log(' Receita não encontrada');
       return res.status(404).json({ 
         success: false, 
         message: 'Receita não encontrada' 
@@ -462,7 +462,7 @@ app.delete('/recipe/:recipeId', async (req, res) => {
     
     // Verificar se o usuário é o dono da receita
     if (recipe.user_id !== parseInt(userId)) {
-      console.log('❌ Usuário não autorizado a deletar esta receita');
+      console.log(' Usuário não autorizado a deletar esta receita');
       return res.status(403).json({ 
         success: false, 
         message: 'Você só pode deletar suas próprias receitas' 
@@ -485,10 +485,10 @@ app.delete('/recipe/:recipeId', async (req, res) => {
     // Deletar a receita
     await pool.execute('DELETE FROM user_recipes WHERE id = ?', [recipeId]);
 
-    console.log(`✅ RECEITA DELETADA COM SUCESSO!`);
-    console.log(`👤 Por: ${userName}`);
-    console.log(`📝 Receita: ${recipe.name}`);
-    console.log(`🗑️ ID: ${recipeId}`);
+    console.log(` RECEITA DELETADA COM SUCESSO!`);
+    console.log(` Por: ${userName}`);
+    console.log(` Receita: ${recipe.name}`);
+    console.log(` ID: ${recipeId}`);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
     res.json({ 
@@ -497,7 +497,7 @@ app.delete('/recipe/:recipeId', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Erro ao deletar receita:', error);
+    console.error(' Erro ao deletar receita:', error);
     res.status(500).json({ 
       success: false, 
       message: 'Erro interno do servidor' 
@@ -530,7 +530,7 @@ app.post('/comment', async (req, res) => {
       [userId, recipeId, comment]
     );
 
-    console.log(`💬 ${userName} comentou na receita ${recipeId}: "${comment}"`);
+    console.log(` ${userName} comentou na receita ${recipeId}: "${comment}"`);
 
     res.json({ 
       success: true, 
@@ -579,13 +579,13 @@ app.delete('/comment/delete', async (req, res) => {
   try {
     const { userId, recipeId, commentId } = req.body;
 
-    console.log(`\n🗑️ TENTATIVA DE DELETAR COMENTÁRIO:`);
-    console.log(`👤 Usuário ID: ${userId}`);
-    console.log(`📝 Receita ID: ${recipeId}`);
-    console.log(`💬 Comentário ID: ${commentId}`);
+    console.log(`\n TENTATIVA DE DELETAR COMENTÁRIO:`);
+    console.log(` Usuário ID: ${userId}`);
+    console.log(` Receita ID: ${recipeId}`);
+    console.log(` Comentário ID: ${commentId}`);
 
     if (!userId || !commentId) {
-      console.log('❌ Dados insuficientes para deletar comentário');
+      console.log(' Dados insuficientes para deletar comentário');
       return res.status(400).json({ 
         success: false, 
         message: 'User ID e Comment ID são obrigatórios' 
@@ -599,7 +599,7 @@ app.delete('/comment/delete', async (req, res) => {
     );
 
     if (commentInfo.length === 0) {
-      console.log('❌ Comentário não encontrado');
+      console.log(' Comentário não encontrado');
       return res.status(404).json({ 
         success: false, 
         message: 'Comentário não encontrado' 
@@ -610,7 +610,7 @@ app.delete('/comment/delete', async (req, res) => {
     
     // Verificar se o usuário é o dono do comentário
     if (comment.user_id !== parseInt(userId)) {
-      console.log('❌ Usuário não autorizado a deletar este comentário');
+      console.log(' Usuário não autorizado a deletar este comentário');
       return res.status(403).json({ 
         success: false, 
         message: 'Você só pode deletar seus próprios comentários' 
@@ -627,10 +627,10 @@ app.delete('/comment/delete', async (req, res) => {
     // Deletar o comentário
     await pool.execute('DELETE FROM comments WHERE id = ?', [commentId]);
 
-    console.log(`✅ COMENTÁRIO DELETADO COM SUCESSO!`);
-    console.log(`👤 Por: ${userName}`);
-    console.log(`💬 Texto: "${comment.comment}"`);
-    console.log(`🗑️ ID: ${commentId}`);
+    console.log(` COMENTÁRIO DELETADO COM SUCESSO!`);
+    console.log(` Por: ${userName}`);
+    console.log(` Texto: "${comment.comment}"`);
+    console.log(` ID: ${commentId}`);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
     res.json({ 
@@ -639,7 +639,7 @@ app.delete('/comment/delete', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Erro ao deletar comentário:', error);
+    console.error(' Erro ao deletar comentário:', error);
     res.status(500).json({ 
       success: false, 
       message: 'Erro interno do servidor' 
@@ -699,9 +699,9 @@ const mostrarUsuariosExistentes = async () => {
     const [usuarios] = await pool.execute('SELECT id, name, email, created_at FROM users ORDER BY created_at DESC');
     
     if (usuarios.length === 0) {
-      console.log('📝 Nenhum usuário cadastrado ainda.');
+      console.log(' Nenhum usuário cadastrado ainda.');
     } else {
-      console.log(`📊 ${usuarios.length} usuário(s) encontrado(s):`);
+      console.log(` ${usuarios.length} usuário(s) encontrado(s):`);
       usuarios.forEach((user, index) => {
         const dataFormatada = user.created_at ? new Date(user.created_at).toLocaleDateString('pt-BR') : 'Data não disponível';
         console.log(`   ${index + 1}. 👤 ${user.name} (${user.email}) - ID: ${user.id} - Cadastrado em: ${dataFormatada}`);
@@ -710,7 +710,7 @@ const mostrarUsuariosExistentes = async () => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     
   } catch (error) {
-    console.error('❌ Erro ao buscar usuários existentes:', error);
+    console.error(' Erro ao buscar usuários existentes:', error);
   }
 };
 
@@ -727,19 +727,18 @@ const startServer = async () => {
     
     // Iniciar servidor
     app.listen(PORT, () => {
-      console.log(`🚀 Servidor rodando na porta ${PORT}`);
-      console.log(`🚀 Servidor rodando na porta ${PORT}`);
-      console.log(`📱 Página Inicial: http://localhost:${PORT}/`);
-      console.log(`📱 Ou acesse: http://localhost:${PORT}/home/Página-inicial.html`);
-      console.log(`📱 Ou acesse: http://localhost:${PORT}/front/home/Página-inicial.html`);
-      console.log(`🍳 Feed: http://localhost:${PORT}/feed`);
-      console.log(`🔗 API Status: http://localhost:${PORT}/api/status`);
+      console.log(` Servidor rodando na porta ${PORT}`);
+      console.log(` Servidor rodando na porta ${PORT}`);
+      console.log(` Página Inicial: http://localhost:${PORT}/`);
+      console.log(` Ou acesse: http://localhost:${PORT}/home/Página-inicial.html`);
+      console.log(` Ou acesse: http://localhost:${PORT}/front/home/Página-inicial.html`);
+      console.log(` Feed: http://localhost:${PORT}/feed`);
+      console.log(` API Status: http://localhost:${PORT}/api/status`);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('👀 Aguardando novos cadastros e logins...\n');
     });
     
   } catch (error) {
-    console.error('❌ Erro ao iniciar servidor:', error);
+    console.error(' Erro ao iniciar servidor:', error);
     process.exit(1);
   }
 };
@@ -749,8 +748,8 @@ const startServer = async () => {
 
 // Eventos para limpar dados ao fechar servidor
 process.on('SIGINT', async () => {
-  console.log('\n🔄 Encerrando servidor (SIGINT)...');
-  console.log('👋 Servidor encerrado!');
+  console.log('\n Encerrando servidor (SIGINT)...');
+  console.log(' Servidor encerrado!');
   process.exit(0);
 });
 

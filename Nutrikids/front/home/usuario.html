@@ -301,6 +301,9 @@
         <button class="btn-nova-receita" onclick="document.getElementById('uploadFoto').click()" style="background: linear-gradient(135deg, #ffa726, #ff9800);">
           <i class="fas fa-camera"></i> Nova Foto
         </button>
+        <button class="btn-nova-receita" onclick="alterarNomeUsuario()" style="background: linear-gradient(135deg, #a44dd8, #7c3aed);">
+          <i class="fas fa-user-edit"></i> Alterar Nome
+        </button>
       </div>
       <input type="file" id="uploadFoto" accept="image/*" style="display: none;" onchange="processarFoto(this)">
     </div>
@@ -318,6 +321,64 @@
   <script>
     // Variável global para usuário atual
     let usuarioAtual = { id: 1, name: 'Chef Kids' }; // Usuário padrão
+
+    // Função para alterar nome do usuário
+    function alterarNomeUsuario() {
+      const nomeAtual = usuarioAtual.name || 'Chef Kids';
+      const novoNome = prompt('Digite seu novo nome de usuário:', nomeAtual);
+      
+      // Se o usuário cancelou ou não digitou nada
+      if (novoNome === null) {
+        return;
+      }
+      
+      if (!novoNome.trim()) {
+        alert('❌ Por favor, digite um nome válido.');
+        return;
+      }
+      
+      // Validar tamanho do nome
+      if (novoNome.trim().length < 2) {
+        alert('❌ O nome deve ter pelo menos 2 caracteres.');
+        return;
+      }
+      
+      if (novoNome.trim().length > 50) {
+        alert('❌ O nome não pode ter mais de 50 caracteres.');
+        return;
+      }
+      
+      try {
+        // Atualizar usuário atual
+        usuarioAtual.name = novoNome.trim();
+        
+        // Salvar no localStorage
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAtual));
+        
+        // Atualizar nome na tela
+        document.getElementById('nomeUsuario').textContent = novoNome.trim();
+        
+        // Atualizar nome em todas as postagens existentes
+        let postagens = JSON.parse(localStorage.getItem('postagens-perfil')) || [];
+        postagens.forEach(p => {
+          if (p.usuario_id === usuarioAtual.id) {
+            p.usuario_nome = novoNome.trim();
+          }
+        });
+        localStorage.setItem('postagens-perfil', JSON.stringify(postagens));
+        
+        mostrarNotificacao('✅ Nome alterado com sucesso!', 'sucesso');
+        
+        // Recarregar receitas para mostrar o nome atualizado
+        setTimeout(() => {
+          carregarReceitas();
+        }, 200);
+        
+      } catch (error) {
+        console.error('Erro ao alterar nome:', error);
+        alert('❌ Erro ao alterar nome. Tente novamente.');
+      }
+    }
 
     // Função para carregar informações do usuário
     async function carregarUsuario() {

@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');
 const dbConfig = {
   host: 'localhost',
   user: 'root',
-  password: 'rafaferrasso10', 
+  password: 'root', 
   database: 'nutrikids', 
   port: 3306,
   multipleStatements: true
@@ -34,7 +34,7 @@ const testConnection = async () => {
 // Função para criar tabelas se não existirem
 const initTables = async () => {
   try {
-    console.log('🔄 Verificando/criando tabelas do banco...');
+    console.log(' Verificando/criando tabelas do banco...');
     
     // Garantir que o banco de dados existe
     await pool.execute('CREATE DATABASE IF NOT EXISTS nutrikids');
@@ -110,18 +110,18 @@ const initTables = async () => {
       )
     `);
 
-    console.log('✅ Todas as tabelas foram verificadas/criadas com sucesso!');
+    console.log(' Todas as tabelas foram verificadas/criadas com sucesso!');
     
     // Verificar se o usuário admin existe e criá-lo se necessário
     const [adminCount] = await pool.execute('SELECT COUNT(*) as count FROM users WHERE email = ?', ['rafaferrasso@nutrikids.com']);
     
     if (adminCount[0].count === 0) {
-      console.log('👤 Criando usuário administrador padrão...');
+      console.log(' Criando usuário administrador padrão...');
       await pool.execute(
         'INSERT INTO users (name, email, password, avatar) VALUES (?, ?, ?, ?)',
         ['Admin Nutri Kids', 'rafaferrasso@nutrikids.com', '123456789', '/front/imagem/user.png']
       );
-      console.log('✅ Usuário administrador criado com sucesso!');
+      console.log(' Usuário administrador criado com sucesso!');
     } else {
       console.log('👤 Usuário administrador já existe!');
       
@@ -130,21 +130,21 @@ const initTables = async () => {
         'UPDATE users SET password = ? WHERE email = ?',
         ['123456789', 'rafaferrasso@nutrikids.com']
       );
-      console.log('✅ Senha do administrador verificada/atualizada!');
+      console.log(' Senha do administrador verificada/atualizada!');
     }
 
     // Verificar se já existem receitas de exemplo
     const [recipeCount] = await pool.execute('SELECT COUNT(*) as count FROM recipes');
     
     if (recipeCount[0].count === 0) {
-      console.log('📝 Inserindo receitas de exemplo...');
+      console.log(' Inserindo receitas de exemplo...');
       await insertSampleRecipes();
     } else {
-      console.log(`📊 ${recipeCount[0].count} receitas já existem no banco.`);
+      console.log(` ${recipeCount[0].count} receitas já existem no banco.`);
     }
 
   } catch (error) {
-    console.error('❌ Erro ao criar tabelas:', error);
+    console.error(' Erro ao criar tabelas:', error);
     throw error;
   }
 };
@@ -203,9 +203,9 @@ const insertSampleRecipes = async () => {
       ]);
     }
 
-    console.log('✅ Receitas de exemplo inseridas com sucesso!');
+    console.log(' Receitas de exemplo inseridas com sucesso!');
   } catch (error) {
-    console.error('❌ Erro ao inserir receitas de exemplo:', error);
+    console.error(' Erro ao inserir receitas de exemplo:', error);
   }
 };
 
